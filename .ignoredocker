@@ -1,0 +1,14 @@
+# Git
+.git
+.gitignore
+
+# docker
+.docker
+
+# python
+
+app/__pycashe__
+app/*/__pycashe__
+app/*/*/__pycashe__
+
+
