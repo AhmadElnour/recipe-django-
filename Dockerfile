@@ -27,7 +27,10 @@ ARG DEV=false
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
+    apk add --update --no-cache posgresql-client&& \
+    apk add --update --no-cache --virutal .tmp-build-deps && \
     /py/bin/pip install -r /temp/requirements.txt && \
+        build-base postgresql-dev musl-dev && \
     if [ $DEV = "true" ] ; then /py/bin/pip install -r /temp/requirements.dev.txt ; fi && \
     rm -rf /temp && \
     adduser \
